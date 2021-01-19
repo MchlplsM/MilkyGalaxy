@@ -12,6 +12,8 @@ namespace MilkyGalaxy
         public long age { get; set; }
         public long dimension { get; set; }
         public long mass { get; set; }
+
+        //----------------------------------CONSTRUCTORS
         //public Star(string name, long age, long dimension, long mass)
         //{
         //    this.name = name;

@@ -26,6 +26,8 @@ namespace MilkyGalaxy
             return listOfPlanets[position];
         }
 
+        //μέθοδο Satellite getSatellite(string) που παραλαμβάνει ένα string και επιστρέφει έναν δορυφόρο που 
+        //έχει όνομα ίδιο με το string της παραμέτρου και ανήκει σε έναν από τους πλανήτες στην λίστα πλανητών του συστήματος.  
         public Satellite getSatellite(string satelliteName)
         {
             int planetPosition = 0, satellitePosition = 0;
@@ -53,5 +55,4 @@ namespace MilkyGalaxy
 }
 
 
-//2) μέθοδο Satellite getSatellite(string) που παραλαμβάνει ένα string και επιστρέφει έναν δορυφόρο που 
-//    έχει όνομα ίδιο με το string της παραμέτρου και ανήκει σε έναν από τους πλανήτες στην λίστα πλανητών του συστήματος.  
+
