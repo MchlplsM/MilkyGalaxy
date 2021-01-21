@@ -8,13 +8,13 @@ namespace MilkyGalaxy
 {
     class Planet
     {
-        public string planetName { get; set; }
+        public string planetName { get; set; } 
 
-        public long mesiApostasiApoTonAsteraTou { get; set; }
+        public double mesiApostasiApoTonAsteraTou { get; set; } //Σε AU
 
-        public long planetMass { get; set; }
+        public double planetMass { get; set; } //Με βάση τη μάζα της Γης
 
-        public int periodosPeriforas { get; set; }
+        public double periodosPeriforas { get; set; } //Σε γήινα χρόνια
 
         public int periodosPeristrofis { get; set; } //οι αρνητικές τιμές σημαίνουν απλά αντίστροφη φορά σε σχέση με την περιστροφή της γης
 
@@ -29,6 +29,12 @@ namespace MilkyGalaxy
         public string atmosphere { get; set; }
 
         public  List<Satellite> listOfSatellites{ get; set; }
+
+        public Planet(){
+        
+        
+        
+        }
 
     }
 }
