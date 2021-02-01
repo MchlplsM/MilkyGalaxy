@@ -16,7 +16,7 @@ namespace MilkyGalaxy
 
         public double periodosPeriforas { get; set; } //Σε γήινα χρόνια
 
-        public int periodosPeristrofis { get; set; } //οι αρνητικές τιμές σημαίνουν απλά αντίστροφη φορά σε σχέση με την περιστροφή της γης
+        public double periodosPeristrofis { get; set; } //οι αρνητικές τιμές σημαίνουν απλά αντίστροφη φορά σε σχέση με την περιστροφή της γης
 
         public bool daxtulioi { get; set; } //YES OR NO
 
@@ -31,9 +31,7 @@ namespace MilkyGalaxy
         public  List<Satellite> listOfSatellites{ get; set; }
 
         public Planet(){
-        
-        
-        
+            
         }
 
     }
