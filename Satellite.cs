@@ -8,8 +8,8 @@ namespace MilkyGalaxy
 {
     class Satellite
     {
-        public string satelliteName { get; set; }
-        public double aktina { get; set; }
-        public double periodosPeristrofis { get; set; } // περίοδος(ημέρες) μιας πλήρους περιστροφής του δορυφόρου γύρω από τον πλανήτη του).
+        public string SatelliteName { get; set; }
+        public double AktinaTouDoruforou { get; set; }
+        public double PeriodosPeristrofis { get; set; } // περίοδος(ημέρες) μιας πλήρους περιστροφής του δορυφόρου γύρω από τον πλανήτη του).
     }
 }

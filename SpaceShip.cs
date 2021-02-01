@@ -29,7 +29,7 @@ namespace MilkyGalaxy
         //την τιμή NULL.
         public void Travel(Planet basePlanet, Planet targetPlanet, double distance)
         {
-            distance = (double)basePlanet.mesiApostasiApoTonAsteraTou - targetPlanet.mesiApostasiApoTonAsteraTou;
+            distance = (double)basePlanet.MesiApostasiApoTonAsteraTou - targetPlanet.MesiApostasiApoTonAsteraTou;
             int i = 0;
             while (distance > 0)
             {
@@ -38,7 +38,7 @@ namespace MilkyGalaxy
                 Console.WriteLine($"{i} years passed");
                 if (distance <= 0)
                 {
-                    Console.WriteLine($"The spaceship arrived at {targetPlanet.planetName}");
+                    Console.WriteLine($"The spaceship arrived at {targetPlanet.PlanetName}");
                     break;
                 }
             }

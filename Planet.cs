@@ -8,27 +8,27 @@ namespace MilkyGalaxy
 {
     class Planet
     {
-        public string planetName { get; set; } 
+        public string PlanetName { get; set; } 
 
-        public double mesiApostasiApoTonAsteraTou { get; set; } //Σε AU
+        public double MesiApostasiApoTonAsteraTou { get; set; } //Σε AU
 
-        public double planetMass { get; set; } //Με βάση τη μάζα της Γης
+        public double PlanetMass { get; set; } //Με βάση τη μάζα της Γης
 
-        public double periodosPeriforas { get; set; } //Σε γήινα χρόνια
+        public double PeriodosPeriforas { get; set; } //Σε γήινα χρόνια
 
-        public double periodosPeristrofis { get; set; } //οι αρνητικές τιμές σημαίνουν απλά αντίστροφη φορά σε σχέση με την περιστροφή της γης
+        public double PeriodosPeristrofis { get; set; } //οι αρνητικές τιμές σημαίνουν απλά αντίστροφη φορά σε σχέση με την περιστροφή της γης
 
-        public bool daxtulioi { get; set; } //YES OR NO
+        public bool Daxtulioi { get; set; } //YES OR NO
 
-        public bool ghinosPlanitis { get; set; }//YES OR NO
+        public bool GhinosPlanitis { get; set; }//YES OR NO
 
-        public bool aerinosPlanitis { get; set; }//YES OR NO
+        public bool AerinosPlanitis { get; set; }//YES OR NO
 
-        public bool dwarfPlanet { get; set; }//YES OR NO
+        public bool DwarfPlanet { get; set; }//YES OR NO
 
-        public string atmosphere { get; set; }
+        public string Atmosphere { get; set; }
 
-        public  List<Satellite> listOfSatellites{ get; set; }
+        public  List<Satellite> ListOfSatellites{ get; set; }
 
         public Planet(){
             

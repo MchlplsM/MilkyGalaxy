@@ -17,7 +17,7 @@ namespace MilkyGalaxy
             int position = 0;
             for (int i = 0; i < listOfPlanets.Count; i++)
             {
-                if (listOfPlanets[i].planetName == planetName)
+                if (listOfPlanets[i].PlanetName == planetName)
                 {
                     position = i;
                     break;
@@ -33,9 +33,9 @@ namespace MilkyGalaxy
             int planetPosition = 0, satellitePosition = 0;
             for (int i = 0; i < listOfPlanets.Count; i++)
             {
-                for (int j = 0; j < listOfPlanets[i].listOfSatellites.Count; j++)
+                for (int j = 0; j < listOfPlanets[i].ListOfSatellites.Count; j++)
                 {
-                    if (listOfPlanets[i].listOfSatellites[j].satelliteName == satelliteName)
+                    if (listOfPlanets[i].ListOfSatellites[j].SatelliteName == satelliteName)
                     {
                         planetPosition = i;
                         satellitePosition = j;
@@ -43,7 +43,7 @@ namespace MilkyGalaxy
                     }
                 }
             }
-            return listOfPlanets[planetPosition].listOfSatellites[satellitePosition];
+            return listOfPlanets[planetPosition].ListOfSatellites[satellitePosition];
         }
 
         public void PrintThePlanetSystem(Star name)
