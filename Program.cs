@@ -31,19 +31,49 @@ namespace MilkyGalaxy
             //Eκτυπώστε την συνολική μάζα των πλανητών του ηλιακού μας σύστήματος που έχουν περισσότερους από τρεις δορυφόρους
             TotalMassOfPlanetsWhoHaveMoreThanThreeSatellites(planetSystem);
 
+            //εκτυπώστε τα ονόματα των πλανητών που είναι αέρινοι, έχουν δακτύλιο και οι ακτίνα των δορυφόρων τους είναι μεγαλύτερη ή ίση της ακτίνας του δορυφόρου με το όνομα ΠΟΛΥΔΕΥΚΗΣ 
+            //και μικρότερη ή ίση της ακτίνας του δορυφόρου ΤΙΤΑΝΙΑ.Επιπλέον για κάθε έναν από αυτούς, εκτυπώστε το πλήθος και τα ονόματα των δορυφόρων τους.
+            PrintAllPlanetsWhoAreAerialHaveARingAndTheRadiusOfTheirSatellitesIsBiggerOrEqualToSatellitePolydeucesAndSmallerOrEqualToSatelliteTitania(planetSystem);
+
+
             //εκτυπώστε τα ονόματα των δορυφόρων εκείνων των πλανητών που η περίοδος περιφοράς τους γύρω από τον ήλιο είναι μεγαλύτερη της περιόδου περιφοράς γύρω από τον ήλιο της 
             //ΑΦΡΟΔΙΤΗΣ και μικρότερη του ΟΥΡΑΝΟΥ και το σύνολο των δορυφόρων τους που έχουν περίοδο περιστροφής γύρω από τον άξονα τους μεγαλύτερο της ΜΝΗΜΗΣ, είναι μεγαλύτερο του 3
-            double periodosPeristrofisTisMneme = 0;
-            for (int j = 0; j < planetSystem.listOfPlanets.Count; j++)
+            PrintSatellitesOfPlanetsWithOrbitalPeriodBiggerThanAfroditiAndSmallerThanOuranouAndTheSatellitesHaveAnOrbitalPeriodBiggerThanMneme(planetSystem);
+        }
+
+        private static void PrintAllPlanetsWhoAreAerialHaveARingAndTheRadiusOfTheirSatellitesIsBiggerOrEqualToSatellitePolydeucesAndSmallerOrEqualToSatelliteTitania(PlanetSystem planetSystem)
+        {
+            Satellite Polydeuces = planetSystem.getSatellite("Polydeuces");
+            Satellite Titania = planetSystem.getSatellite("Titania");
+            for (int i = 0; i < planetSystem.listOfPlanets.Count; i++)
             {
-                for (int k = 0; k < planetSystem.listOfPlanets[j].ListOfSatellites.Count; k++)
+                if (planetSystem.listOfPlanets[i].Daxtulioi == true && planetSystem.listOfPlanets[i].AerinosPlanitis == true)
                 {
-                    if (planetSystem.listOfPlanets[j].ListOfSatellites[k].SatelliteName == "Mneme" )
+                    int counter = 0;
+                    for (int k = 0; k < planetSystem.listOfPlanets[i].ListOfSatellites.Count; k++)
                     {
-                        periodosPeristrofisTisMneme = planetSystem.listOfPlanets[j].ListOfSatellites[k].PeriodosPeristrofis;
+                        if ((planetSystem.listOfPlanets[i].ListOfSatellites[k].AktinaTouDoruforou < Polydeuces.AktinaTouDoruforou) && planetSystem.listOfPlanets[i].ListOfSatellites[k].AktinaTouDoruforou > Titania.AktinaTouDoruforou)
+                        {
+                            counter++;
+                        }
+                    }
+                    if (counter == 0)
+                    {
+                        Console.WriteLine($"\nThe planet {planetSystem.listOfPlanets[i].PlanetName} is aerial, has a ring and all the satellites of that particular planet have a radius >= to Polydeuces" +
+                            $" and also have a radius <= to Titania. The total number of satellites of planet {planetSystem.listOfPlanets[i].PlanetName} is: {planetSystem.listOfPlanets[i].ListOfSatellites.Count}");
+                        Console.WriteLine($"Please find below their respective names:");
+                        for (int k = 0; k < planetSystem.listOfPlanets[i].ListOfSatellites.Count; k++)
+                        {
+                            Console.WriteLine($"{k + 1} - {planetSystem.listOfPlanets[i].ListOfSatellites[k].SatelliteName}");
+                        }
                     }
                 }
             }
+        }
+
+        private static void PrintSatellitesOfPlanetsWithOrbitalPeriodBiggerThanAfroditiAndSmallerThanOuranouAndTheSatellitesHaveAnOrbitalPeriodBiggerThanMneme(PlanetSystem planetSystem)
+        {
+            Satellite Mneme = planetSystem.getSatellite("Mneme");
             for (int i = 0; i < planetSystem.listOfPlanets.Count; i++)
             {
                 int counter = 0;
@@ -54,7 +84,7 @@ namespace MilkyGalaxy
                     {
                         for (int k = 0; k < planetSystem.listOfPlanets[i].ListOfSatellites.Count; k++)
                         {
-                            if (planetSystem.listOfPlanets[i].ListOfSatellites[k].PeriodosPeristrofis > periodosPeristrofisTisMneme)
+                            if (planetSystem.listOfPlanets[i].ListOfSatellites[k].PeriodosPeristrofis > Mneme.PeriodosPeristrofis)
                             {
                                 counter++;
                                 satellitesMePeriodoPeriforaMegaluteriTisMneme.Add(planetSystem.listOfPlanets[i].ListOfSatellites[k]);
@@ -62,10 +92,12 @@ namespace MilkyGalaxy
                         }
                         if (counter > 3)
                         {
+                            Console.WriteLine($"Planet {planetSystem.listOfPlanets[i].PlanetName} has more than 3 satellites that fullfil the criteria:");
                             for (int c = 0; c < satellitesMePeriodoPeriforaMegaluteriTisMneme.Count; c++)
                             {
-                                Console.WriteLine($"{satellitesMePeriodoPeriforaMegaluteriTisMneme[c].SatelliteName} has an orbital period of: {satellitesMePeriodoPeriforaMegaluteriTisMneme[c].PeriodosPeristrofis}"); 
+                                Console.WriteLine($"{satellitesMePeriodoPeriforaMegaluteriTisMneme[c].SatelliteName} has an orbital period of: {satellitesMePeriodoPeriforaMegaluteriTisMneme[c].PeriodosPeristrofis}");
                             }
+                            Console.WriteLine();
                         }
                     }
                 }
@@ -85,6 +117,7 @@ namespace MilkyGalaxy
                 }
             }
             Console.WriteLine($"The total mass of the aformentioned planets is: {totalMassOfPlanetsWhoHaveMoreThan3Satellites} X 10^+-25kg");
+            Console.WriteLine();
         }
 
         private static void AddPlanetsTothePlanetSystemAndAddSatellitesToEachPlanet(PlanetSystem planetSystem, string planetTxtFile, string doruforoiTxtFile, string aktinaDoruforouTxtFile, string PeriodosPeristrofisDoruforouTxtFile)
